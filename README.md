@@ -1,6 +1,6 @@
-# Container orchestration with Kubernetes
+# Kubernetes GitOps featuring GitHub, GitHub Actions, ArgoCD and Kustomize
 
-Welcome to the labs of the "Container orchestration with Kubernetes" learning course.
+Welcome to the labs of the "Kubernetes GitOps featuring GitHub, GitHub Actions, ArgoCD and Kustomize" learning course.
 
 ## Labs
 
