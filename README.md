@@ -14,12 +14,19 @@ Welcome to the labs of the "Kubernetes GitOps featuring GitHub, GitHub Actions, 
 
 [04 - Test the application locally](labs/04-Test_the_application_locally/README.md)
 
-
 [05 - Setup application CI/CD pipeline](labs/05-Setup_application_CICD_pipeline/README.md)
 
 [06 - Make an application feature and publish the Docker image](labs/06-Make_an_application_feature_and_publish_the_Docker_image/README.md)
 
 [07 - Test the Dockerized application locally](labs/07-Test_the_Dockerized_application_locally/README.md)
+
+[08 - Fork and clone the application config repo](labs/08-Fork_and_clone_the_application_config_repo/README.md)
+
+[09 - Install ArgoCD on Kubernetes](labs/09-Install_ArgoCD_on_Kubernetes/README.md)
+
+[10 - Create the first ArgoCD application](labs/10-Create_the_first_ArgoCD_application/README.md)
+
+[11 - Configure ArgoCD to send synchronization feedback using Slack](labs/11-Configure_ArgoCD_to_send_synchronization_feedback_using_Slack/README.md)
 
 
 ## Appendices
