@@ -29,6 +29,8 @@ Welcome to the labs of the "Kubernetes GitOps featuring GitHub, GitHub Actions, 
 [11 - Configure ArgoCD to send synchronization feedback using Slack](labs/11-Configure_ArgoCD_to_send_synchronization_feedback_using_Slack/README.md)
 
 
+[12  Run your application version on Kubernates development environment](labs/12-Run_your_application_version_on_Kubernates_development_environment/README.md)
+
 ## Appendices
 
 [A-Sync copy of forked repo](appendices/A-Sync_copy_of_forked_repo/README.md)
