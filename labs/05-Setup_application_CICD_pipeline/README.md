@@ -7,7 +7,7 @@
 
 ## Enable GitHub Actions
 
-Using your browser go to **https://github.com/\<YOUR GITHUB ACCOUNT\>/java-hello-world** (please substitute the placeholder \<YOUR GITHUB ACCOUNT\> qith your GitHub account).
+Using your browser go to **https://github.com/<YOUR GITHUB ACCOUNT\>/java-hello-world** (please substitute the placeholder \<YOUR GITHUB ACCOUNT\> qith your GitHub account).
 
 Click on "Actions" button on the top menu bar.
 
