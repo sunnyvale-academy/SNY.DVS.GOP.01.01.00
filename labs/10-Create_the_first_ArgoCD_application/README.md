@@ -3,7 +3,7 @@
 
 ## Prerequisites
 
-- Having completed lab [09 - Install ArgoCD on Kubernetes](../labs/09-Install_ArgoCD_on_Kubernetes/README.md)
+- Having completed lab [09 - Install ArgoCD on Kubernetes](../09-Install_ArgoCD_on_Kubernetes/README.md)
 - Having the **kubectl** command already configure to point to your Kubernetes master node (or Minikube instance)
 - Having installed the ArgoCD CLI (more at [https://argoproj.github.io/argo-cd/cli_installation/](https://argoproj.github.io/argo-cd/cli_installation/))
 - Having setup the ArgoCD port forward (please have a look of the previous lab)
