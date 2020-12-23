@@ -3,7 +3,7 @@
 
 ## Prerequisites
 
-- Having completed lab [09 - Install ArgoCD on Kubernetes](labs/09-Install_ArgoCD_on_Kubernetes/README.md)
+- Having completed lab [09 - Install ArgoCD on Kubernetes](../labs/09-Install_ArgoCD_on_Kubernetes/README.md)
 - Having the **kubectl** command already configure to point to your Kubernetes master node (or Minikube instance)
 - Having installed the ArgoCD CLI (more at [https://argoproj.github.io/argo-cd/cli_installation/](https://argoproj.github.io/argo-cd/cli_installation/))
 - Having setup the ArgoCD port forward (please have a look of the previous lab)
@@ -22,7 +22,7 @@ $ argocd login localhost:4000 --insecure --username admin --grpc-web  --password
 Context 'localhost:4000' updated
 ```
 
-Create the app
+Create the app (please replace the placeholder \<YOUR GITHUB ACCOUNT\> with your GitHub account)
 
 ```console
 $ argocd app create java-hello-world-development \
@@ -33,7 +33,7 @@ $ argocd app create java-hello-world-development \
     --auto-prune \
     --self-heal \
     --sync-policy auto \
-    --sync-option CreateNamespace=true
+    --sync-option CreateNamespace=true \
     --revision development 
 application 'java-hello-world-development' created
 ```
