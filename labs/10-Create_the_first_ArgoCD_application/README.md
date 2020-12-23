@@ -33,7 +33,7 @@ $ argocd app create java-hello-world-development \
     --auto-prune \
     --self-heal \
     --sync-policy auto \
-    --revision development \
+    --revision development 
 application 'java-hello-world-development' created
 ```
 
