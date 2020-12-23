@@ -1,5 +1,5 @@
 
-# Make an application feature and publish the Docker image
+# Make an application feature and publish the Docker image
 
 ## Prerequisites
 
