@@ -58,15 +58,15 @@ Run the application:
 ```console
 $ java -cp "./target/libs/*:target/*" it.sunnyvale.java.helloworld.Main
 2020.11.03 00:16:34 INFO io.helidon.common.HelidonFeatures Thread[features-thread,5,main]: Helidon SE 2.1.0 features: [Config, Health, Metrics, WebServer]
-2020.11.03 00:16:34 INFO io.helidon.webserver.NettyWebServer Thread[nioEventLoopGroup-2-1,10,main]: Channel '@default' started: [id: 0xf079d08c, L:/0:0:0:0:0:0:0:0:8080]
-WEB server is up! http://localhost:8080/greet
+2020.11.03 00:16:34 INFO io.helidon.webserver.NettyWebServer Thread[nioEventLoopGroup-2-1,10,main]: Channel '@default' started: [id: 0xf079d08c, L:/0:0:0:0:0:0:0:0:8102]
+WEB server is up! http://localhost:8102/greet
 ```
 
 
 Test the application. In another terminal, type the command:
 
 ```console
-$ curl curl http://localhost:8080/greet
+$ curl curl http://localhost:8102/greet
 {"message":" World v.snapshot from host <YOUR PC NAME>! I'm running in local!"}
 ```
 
