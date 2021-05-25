@@ -62,7 +62,7 @@ Make sure that all the Pods are running
 By default ArgoCD is now published outside the cluster, to reach its user interface you have to create a port forward:
 
 ```console
-$ kubectl port-forward svc/argocd-server -n argocd 4000:443
+$ kubectl port-forward svc/argocd-server  --address 0.0.0.0  -n argocd 4000:443
 Forwarding from 127.0.0.1:4000 -> 8080
 Forwarding from [::1]:4000 -> 8080
 ```
