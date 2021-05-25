@@ -14,10 +14,10 @@ An ArgoCD application is basically an instance of your application in a specific
 
 There are two options for creating CD deployment which are either via CLI or UI. We are going to the CLI for as it is more declarative.
 
-Login with the CLI (by default, the ArgoCD admin password is set as the name of the **server** pod)
+Login with the CLI (by default, the ArgoCD admin password is retrieved using the following command `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`)
 
 ```console
-$ argocd login localhost:4000 --insecure --username admin --grpc-web  --password $(kubectl get po -n argocd | grep argocd-server | cut -d " " -f 1)
+$ argocd login localhost:4000 --insecure --username admin --grpc-web  --password $(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
 'admin' logged in successfully
 Context 'localhost:4000' updated
 ```
