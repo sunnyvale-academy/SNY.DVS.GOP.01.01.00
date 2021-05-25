@@ -39,7 +39,7 @@ or [direct download](https://storage.googleapis.com/minikube/releases/latest/min
 
 ```console
 $ minikube config set memory 4096
-$ minikube start
+$ minikube addons enable ingress
 ```
 
 More at [Minikube website](https://minikube.sigs.k8s.io/docs/start/)
