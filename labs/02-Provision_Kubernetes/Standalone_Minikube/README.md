@@ -39,7 +39,6 @@ or [direct download](https://storage.googleapis.com/minikube/releases/latest/min
 
 ```console
 $ minikube config set memory 4096
-$ minikube addons enable ingress
 ```
 
 More at [Minikube website](https://minikube.sigs.k8s.io/docs/start/)
@@ -51,10 +50,17 @@ Start Minikube
 ```console
 $ minikube start
 ```
+
+Enable ingress addon 
+
+```console
+$ minikube addons enable ingress
+```
+
 Schedule your first Pod
 
 ```console
-$ kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.4 --port=8080
+$ kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.4 --port=9090
 ```
 
 Expose the Pod to the external world
