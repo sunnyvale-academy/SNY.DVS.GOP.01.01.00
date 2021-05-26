@@ -66,7 +66,7 @@ WEB server is up! http://localhost:8102/greet
 Test the application. In another terminal, type the command:
 
 ```console
-$ curl curl http://localhost:8102/greet
+$ curl http://localhost:8102/greet
 {"message":" World v.snapshot from host <YOUR PC NAME>! I'm running in local!"}
 ```
 
