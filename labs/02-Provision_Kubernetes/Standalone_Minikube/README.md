@@ -66,7 +66,7 @@ $ kubectl run hello-minikube --image=k8s.gcr.io/echoserver:1.4 --port=9090
 Expose the Pod to the external world
 
 ```console
-$ kubectl expose deployment hello-minikube --type=NodePort
+$ kubectl expose pod hello-minikube --type=NodePort
 ```
 
 minikube makes it easy to open this exposed endpoint in your browser:
