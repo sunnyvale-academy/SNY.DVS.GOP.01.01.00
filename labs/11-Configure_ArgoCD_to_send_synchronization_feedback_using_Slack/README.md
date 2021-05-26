@@ -10,7 +10,8 @@ This lab is optional, do it ONLY if you have a Slack account and you are a Works
 ## Install ArgoCD Notification
 
 ```console
-$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/stable/manifests/install.yaml
+$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/release-1.0/manifests/install.yaml
+$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj-labs/argocd-notifications/release-1.0/catalog/install.yaml
 ```
 
 ## Create a Slack custom app
@@ -33,49 +34,41 @@ Before running the following command, make sure to use your Slack tocken instead
 
 
 ```console
-$ kubectl apply -n argocd -f - << EOF
+$ kubectl apply -n argocd -f - <<EOF
 apiVersion: v1
 kind: Secret
 metadata:
   name: argocd-notifications-secret
 stringData:
-  notifiers.yaml: |
-    slack:
-      token: <YOUR SLACK TOKEN>
-type: Opaque
+  slack-token: <YOUR SLACK TOKEN>
 EOF
+secret/argocd-notifications-secret configured
 ```
 
 Enable built-in trigger in the argocd-notifications-cm config map:
 
 ```console
-$ kubectl apply -n argocd -f - << EOF
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: argocd-notifications-cm
-data:
-  config.yaml: |
-    triggers:
-      - name: on-sync-succeeded
-        enabled: true
-EOF
+$ kubectl patch cm argocd-notifications-cm \
+  -n argocd \
+  --type merge \
+  -p '{"data":{"service.slack":"token: $slack-token"}}'
+configmap/argocd-notifications-cm configured
 ```
 
 Subscribe to notifications by adding the recipients.argocd-notifications.argoproj.io annotation to the Argo CD application or project (make sure you put the channel name instead of \<my-channel\> and the application name instead of \<my-app\>):
 
 ```console
-$ kubectl patch app <my-app> -n argocd -p '{"metadata": {"annotations": {"recipients.argocd-notifications.argoproj.io":"slack:<my-channel>"}}}' --type merge
+$ kubectl patch app <my-app> -n argocd -p '{"metadata": {"annotations": {"notifications.argoproj.io/subscribe.on-sync-succeeded.slack":"<my-channel>"}}}' --type merge
 ```
 
 In my case, I created a Slack channel named **#java-hello-world** (as the application name), so as my command is:
 
 ```console
-$ kubectl patch app java-hello-world-development -n argocd -p '{"metadata": {"annotations": {"recipients.argocd-notifications.argoproj.io":"slack:java-hello-world"}}}' --type merge
+$ kubectl patch app java-hello-world-development -n argocd -p '{"metadata": {"annotations": {"notifications.argoproj.io/subscribe.on-sync-succeeded.slack": "java-hello-world"}}}' --type merge
 application.argoproj.io/java-hello-world-development patched
 ```
 
-Before testing the solution, invite the Slack bot you created in the channel **java-hello-world** by mentioning him in the channel.
+Before testing the solution, invite the Slack bot you created in the channel **java-hello-world** by mentioning him in the channel (using **@ArgoCD notification**).
 
 ## Test the notification
 
@@ -93,3 +86,10 @@ If the solution worked, you should see a message like this on you Slack channel
 ![](img/1.png)
 
 
+## Troubleshooting
+
+To inspect ArgoCD Notification logs
+
+```console
+$ kubectl exec -it $(kubectl get pod -n argocd | grep notification | cut -d " " -f 1) -n argocd --  /app/argocd-notifications trigger get
+```
