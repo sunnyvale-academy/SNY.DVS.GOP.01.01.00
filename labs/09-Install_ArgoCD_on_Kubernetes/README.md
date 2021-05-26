@@ -74,4 +74,9 @@ The ArgoCD web interface opens:
 ![](img/1.png).
 
 
+Username: admin
+To obtain the password type:
 
+```console
+$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
